@@ -1,0 +1,18 @@
+<?php
+
+namespace App;
+
+use App\product;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Model;
+class Category extends Model implements TranslatableContract	{
+
+  use Translatable;
+	protected $fillable = ['name'];
+	public $translatedAttributes = ['name'];
+	public function products(){
+	return $this->hasMany(product::class);
+		
+	}
+}
